@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.awt.Container;
+
 import javax.swing.*;
 
 public class Basics_JFrame {
@@ -14,6 +17,9 @@ public class Basics_JFrame {
 		frame.setTitle("Calc");
 		ImageIcon obj=new ImageIcon("/icons/icons1.jpg");
 		frame.setIconImage(obj.getImage());
+		
+		Container c=frame.getContentPane();
+		c.setBackground(Color.BLUE);
 	}
 	
 }
