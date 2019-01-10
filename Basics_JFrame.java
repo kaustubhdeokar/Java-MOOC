@@ -8,7 +8,6 @@ public class Basics_JFrame {
 	public static void main(String[] args){
 		
 		JFrame frame=new JFrame();
-		JFrame.setDefaultLookAndFeelDecorated(true);
 		frame.setVisible(true);
 		frame.setSize(200, 200);
 		frame.setLocation(200,200);
