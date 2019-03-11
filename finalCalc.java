@@ -179,12 +179,21 @@ public class Model extends JFrame  {
 		 try
 	    {
 		Object k=jsEngine.eval(t2.getText());  
-		int ol=(Integer) k;
-		t1.setText(Integer.toString(ol));
+		double ol=(Double) k;
+		t1.setText(Double.toString(ol));
 	    }
 	    catch (Exception ex)
 	    {
-	        ex.printStackTrace();
+	    	try{
+	    	ScriptEngineManager mgr1 = new ScriptEngineManager();
+			ScriptEngine jsEngine2 = mgr1.getEngineByName("JavaScript");
+	    	Object k=jsEngine2.eval(t2.getText());  
+			int ol=(Integer) k;
+			t1.setText(Integer.toString(ol));
+	    	}
+	    	catch(Exception e){
+	    		System.out.println(e);
+	    	}
 	    }
 	}
 		};
@@ -192,8 +201,9 @@ public class Model extends JFrame  {
 
         
         ActionListener hl=new ActionListener(){
+        	//square root
 			public void actionPerformed(ActionEvent ae){
-				double num1=Double.parseDouble(t1.getText());
+				double num1=Double.parseDouble(t2.getText());
 				double value=Math.sqrt(num1);
 				String s=Double.toString(value);
 				t1.setText(s);
@@ -202,7 +212,8 @@ public class Model extends JFrame  {
 		b8.addActionListener(hl);
 
         ActionListener gl=new ActionListener(){
-			public void actionPerformed(ActionEvent ae){
+        	//1/x
+        	public void actionPerformed(ActionEvent ae){
 				double num1=Double.parseDouble(t2.getText());
 				double value=1/num1;
 				String s=Double.toString(value);
@@ -221,8 +232,9 @@ public class Model extends JFrame  {
 		b6.addActionListener(fl);
 
         ActionListener el=new ActionListener(){
+        //percentage	
     			public void actionPerformed(ActionEvent ae){
-    				double num1=Double.parseDouble(t1.getText());
+    				double num1=Double.parseDouble(t2.getText());
     				double value=num1/100;
     				String s=Double.toString(value);
     				t1.setText(s);
