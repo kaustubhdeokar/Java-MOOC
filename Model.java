@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.script.*;
 import javax.swing.*;
 
 public class Model extends JFrame {
@@ -10,6 +11,7 @@ public class Model extends JFrame {
     JPanel pnl = new JPanel();
     JTextField t1,t2;
 	JLabel l1=new JLabel("Result:"),l2=new JLabel("Input:");
+	JLabel l3=new JLabel("Equal to sign supports arithmetic + bool functions");
     JButton btnAddFlight = new JButton("Add Flight");
     JButton b1=new JButton("+");
     JButton b2=new JButton("-");
@@ -18,15 +20,12 @@ public class Model extends JFrame {
     JButton b5=new JButton("%");
     JButton b6=new JButton("C");
     JButton b7=new JButton("1/x");
+    JButton b8=new JButton("\u221A");
+    JButton b9=new JButton("=");
     
     
     public Model() {
-    	Font font = new Font("Arial",Font.LAYOUT_LEFT_TO_RIGHT,5);
-    	for (Component comp : getComponents()) {
-    	    if (comp instanceof JButton) {
-    	        ((JButton)comp).setFont(font);
-    	    }
-    	}
+    	b7.setFont(new Font("Dialog", Font.PLAIN, 10));
     	pnl.setLayout(null);
         setSize(400, 400);
         add(pnl);
@@ -35,9 +34,10 @@ public class Model extends JFrame {
         setTitle("Calculator");
         l1.setBounds(40,-5,50,50);
         l2.setBounds(40,30,50,50);
-    
+        l3.setBounds(10,300,400,80);
         pnl.add(l1);
         pnl.add(l2);
+        pnl.add(l3);
         t1=new JTextField(30);
 		t2=new JTextField(30);
 		t1.setBounds(100, 5, 200, 30);
@@ -58,7 +58,72 @@ public class Model extends JFrame {
         pnl.add(b6);
         b7.setBounds(155, 185, 50, 50);
         pnl.add(b7);
+        b8.setBounds(155, 240, 50, 50);
+        pnl.add(b8);
+        b9.setBounds(210, 75, 50, 50);
+        pnl.add(b9);
         
+        t1.setText("0");
+
+        ActionListener il=new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				
+		 ScriptEngineManager mgr = new ScriptEngineManager();
+		 ScriptEngine jsEngine = mgr.getEngineByName("JavaScript");
+		 try
+	    {
+		Object k=jsEngine.eval(t2.getText());  
+		int ol=(Integer) k;
+		t1.setText(Integer.toString(ol));
+	    }
+	    catch (Exception ex)
+	    {
+	        ex.printStackTrace();
+	    }
+	}
+		};
+		b9.addActionListener(il);
+
+        
+        ActionListener hl=new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				double num1=Double.parseDouble(t1.getText());
+				double value=Math.sqrt(num1);
+				String s=Double.toString(value);
+				t1.setText(s);
+			}
+		};
+		b8.addActionListener(hl);
+
+        ActionListener gl=new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				double num1=Double.parseDouble(t1.getText());
+				double value=1/num1;
+				String s=Double.toString(value);
+				t1.setText(s);
+			}
+		};
+		b7.addActionListener(gl);
+
+        
+        ActionListener fl=new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				t1.setText("0");
+				t2.setText("0");
+			}
+		};
+		b6.addActionListener(fl);
+
+        ActionListener el=new ActionListener(){
+    			public void actionPerformed(ActionEvent ae){
+    				double num1=Double.parseDouble(t1.getText());
+    				double value=num1/100;
+    				String s=Double.toString(value);
+    				t1.setText(s);
+    			}
+    		};
+     b5.addActionListener(el);
+
         ActionListener al=new ActionListener(){
 			public void actionPerformed(ActionEvent ae){
 				try{
