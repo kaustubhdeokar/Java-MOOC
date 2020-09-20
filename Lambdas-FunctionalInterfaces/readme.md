@@ -16,7 +16,6 @@ All the functional interfaces are a part of the java.util.function toolbox.
 More than 40 functional interfaces.
 >Four main categories.<br>
 `Supplier` - Takes no argument returns one<br>
-
 `Consumer` - Takes an argument returns none<br>
 `Predicate`- Takes an argument returns boolean - used in filter -streams<br>
 `Function` - Takes an object returns another object - map -streams 
