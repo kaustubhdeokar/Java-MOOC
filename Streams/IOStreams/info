@@ -1,0 +1,11 @@
+Streams.
+Two Types
+1. Byte Array Input/Output.
+2. Text Streams Input/Output.
+
+If multiple exceptions are thrown.
+(autoclosable's method leading to close
+it would trigger close method eventually.
+and throw error if occurred from the same, even if there is other exception thrown earlier.
+So to retrieve this, we can make use of getSuppressed exceptions.
+)
