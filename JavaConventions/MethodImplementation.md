@@ -5,13 +5,9 @@ Cyclomatic Complexity
 Avoid Returning Null
 
     List<String> getSomeData(){
-        
-        try{
-        
-        }
-        catch{
+    //code        
         return null;
-        }
+    }
         
 If returned null
 
@@ -25,10 +21,15 @@ If returned null
         
         Collection.emptyList(); could be used instead.
         
-Do not use (-1,0,1) integers to return, as not universal.
+Do not use (-1,0,1) integers to return, as not universal. 
 
 Number of arguments 
     
     0-2 (Okay)
     3   (Avoid)
     4+  (Refactor)
+    
+For more number of arguements :- <b>Builder Pattern</b>
+    
+Good to FAIL FAST & FAIL EARLY. 
+    
