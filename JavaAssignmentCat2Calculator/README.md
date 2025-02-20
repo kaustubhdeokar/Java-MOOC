@@ -1,2 +1,0 @@
-# Java Swing
-Calc

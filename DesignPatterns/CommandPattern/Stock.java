@@ -1,3 +1,5 @@
+package CommandPattern;
+
 public class Stock {
 
     private String name = "ABC";

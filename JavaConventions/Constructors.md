@@ -5,8 +5,8 @@ Constructors
      For ex.The getInstance does a lot of intilisation but is hiden from the user.  
      > Ex. GregorianCalendar.getInstance() <br>
      
-    
-2.  Chaining to avoid repetition.
+
+2. Chaining to avoid repetition.
 ```
 public class BankAccount {
 

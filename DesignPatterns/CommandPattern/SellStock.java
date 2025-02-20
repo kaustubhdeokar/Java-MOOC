@@ -1,3 +1,7 @@
+package CommandPattern;
+
+import CommandPattern.Order;
+
 public class SellStock implements Order {
     Stock stock;
 

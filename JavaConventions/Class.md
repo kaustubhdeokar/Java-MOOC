@@ -26,6 +26,7 @@ Coupling
 
     Interdependence between two class/modules/objects.
     How much they are connected and know about each other.
+
 Tight/Loose coupling
     
     Change in one class/module requires change in other is referred to Tight Coupling. 
